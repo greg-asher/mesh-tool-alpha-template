@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{ values.name }}
+  annotations:
+    github.com/project-slug: greg-asher/${{ values.name }}
+    mesh-tool/definition: ./mesh-tool.yaml
+spec:
+  type: mesh-tool
+  lifecycle: development
