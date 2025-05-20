@@ -6,6 +6,7 @@ metadata:
 spec:
   endpoint: http://${{ values.name }}-service:8080/invoke
   method: POST
+  type: mesh-tool
   schema:
     input:
       type: object
