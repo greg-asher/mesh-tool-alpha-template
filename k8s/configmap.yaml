@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ${{ values.name }}-config
+  labels:
+    app: ${{ values.name }}
+data:
+  # Tool-specific configuration options
+  LOG_LEVEL: "info"
+  # Add additional configuration options as needed
+  # EXAMPLE_CONFIG: "default-value"

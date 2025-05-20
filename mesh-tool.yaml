@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: MeshTool
+metadata:
+  name: ${{ values.name }}
+  description: ${{ values.description }}
+spec:
+  endpoint: http://${{ values.name }}-service:8080/invoke
+  method: POST
+  schema:
+    input:
+      type: object
+      properties:
+        a: { type: number }
+        b: { type: number }
+        op: { type: string, enum: [add, subtract] }
+      required: [a, b, op]
+    output:
+      type: object
+      properties:
+        result: { type: number }
+      required: [result]
+  requiredSecrets: []

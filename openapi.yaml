@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  title: ${{ values.name }} Tool
+  version: "1.0"
+  description: ${{ values.description }}
+paths:
+  /invoke:
+    post:
+      summary: Invoke the tool
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Input'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Output'
+components:
+  schemas:
+    Input:
+      type: object
+      properties:
+        a:
+          type: number
+        b:
+          type: number
+        op:
+          type: string
+          enum: [add, subtract]
+      required: [a, b, op]
+    Output:
+      type: object
+      properties:
+        result:
+          type: number
+      required: [result]
